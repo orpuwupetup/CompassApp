@@ -1,19 +1,13 @@
 package com.matsuu.compassapp.ui.activities.compass
 
-import android.os.Bundle
-import android.os.PersistableBundle
 import com.matsuu.compassapp.R
 import com.matsuu.compassapp.ui.activities.AbstractDefaultActivity
+import javax.inject.Inject
 
 class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View {
 
+    @Inject
     lateinit var presenter: CompassActivityContract.Presenter
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-
-        presenter = CompassPresenter()
-    }
 
     override fun getLayout(): Int = R.layout.activity_compass
 

@@ -2,12 +2,12 @@ package com.matsuu.compassapp.ui.activities
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
+import dagger.android.support.DaggerAppCompatActivity
 
-abstract class AbstractDefaultActivity: AppCompatActivity() {
+abstract class AbstractDefaultActivity: DaggerAppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         setContentView(getLayout())
     }
