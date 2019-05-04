@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="UserInputEditTextStyle">
+        <item name="android:padding">@dimen/material_design_medium_padding_and_margin_size</item>
+        <item name="android:background">@color/colorEditTextBackground</item>
+        <item name="android:textColorHint">@android:color/black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:inputType">numberDecimal</item>
+    </style>
+
 </resources>

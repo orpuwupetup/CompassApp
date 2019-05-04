@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="material_design_medium_padding_and_margin_size">16dp</dimen>
+    <dimen name="material_design_smallest_padding_and_margin_size">8dp</dimen>
+    <dimen name="material_design_large_padding_and_margin_size">24dp</dimen>
+    <dimen name="lat_long_edit_text_half_spacing">2dp</dimen>
+</resources>

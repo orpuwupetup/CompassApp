@@ -13,9 +13,7 @@ class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View 
     override fun getLayout(): Int = R.layout.activity_compass
 
     override fun setViews() {
-        rotateWindRose.setOnClickListener {
-            wind_rose.animate().rotationBy(30f)
-        }
+        textinput_longitude.error = "no longitude provided"
     }
 
     override fun onResume() {
