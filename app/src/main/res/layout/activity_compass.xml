@@ -3,17 +3,45 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
+        android:background="#C5C0C0"
         android:layout_height="match_parent"
 >
 
-    <TextView
-            android:layout_width="wrap_content"
+    <ImageView
+            android:id="@+id/compass_disc"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Compass will be here"
+            android:src="@drawable/background_compass_with_disc"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintVertical_bias="0.3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+            android:id="@+id/wind_rose"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Compass will be here"
+            android:src="@drawable/ic_wind_rose_with_margin"
+            app:layout_constraintBottom_toBottomOf="@id/compass_disc"
+            app:layout_constraintLeft_toLeftOf="@id/compass_disc"
+            app:layout_constraintRight_toRightOf="@id/compass_disc"
+            app:layout_constraintTop_toTopOf="@id/compass_disc"/>
+
+    <Button
+            android:id="@+id/rotateWindRose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Rotate"
+            android:layout_marginBottom="24dp"
+    />
 
 
 </android.support.constraint.ConstraintLayout>

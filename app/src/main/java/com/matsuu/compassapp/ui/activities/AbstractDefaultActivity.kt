@@ -10,6 +10,12 @@ abstract class AbstractDefaultActivity: DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(getLayout())
+        setViews()
+    }
+
+    // this method is not abstract so that children classes can override it, but don't have to
+    open fun setViews() {
+        // do nothing
     }
 
     abstract fun getLayout(): Int
