@@ -6,6 +6,7 @@ import com.matsuu.compassapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import timber.log.Timber
 import javax.inject.Inject
 
 class CompassApplication: Application(), HasActivityInjector {
@@ -15,6 +16,9 @@ class CompassApplication: Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
+
+        if (BuildConfig.DEBUG)
+            Timber.plant(Timber.DebugTree())
 
         DaggerAppComponent
             .builder()

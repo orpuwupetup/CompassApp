@@ -5,7 +5,9 @@ import com.matsuu.compassapp.ui.BaseView
 
 interface CompassFragmentContract {
 
-    interface View: BaseView<Presenter>
+    interface View: BaseView<Presenter> {
+        fun rotateCompass(lastRotationDegree: Float, currentRotationDegree: Float)
+    }
 
     interface Presenter: BasePresenter<View>
 }

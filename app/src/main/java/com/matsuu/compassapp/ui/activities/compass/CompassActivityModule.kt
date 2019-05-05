@@ -1,7 +1,11 @@
 package com.matsuu.compassapp.ui.activities.compass
 
+import android.content.Context
+import android.hardware.SensorManager
 import com.matsuu.compassapp.di.annotations.ActivityScoped
 import com.matsuu.compassapp.di.annotations.FragmentScoped
+import com.matsuu.compassapp.sensor.compass.AndroidCompassSensor
+import com.matsuu.compassapp.sensor.compass.CompassSensor
 import com.matsuu.compassapp.ui.fragments.compass.CompassFragment
 import com.matsuu.compassapp.ui.fragments.compass.CompassFragmentContract
 import com.matsuu.compassapp.ui.fragments.compass.CompassFragmentModule
@@ -12,6 +16,7 @@ import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragmentModul
 import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputPresenter
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 
 @Module
@@ -37,6 +42,7 @@ abstract class CompassActivityModule {
     internal abstract fun latLongInputFragment(): LatLongInputFragment
 
     @FragmentScoped
-    @ContributesAndroidInjector(modules = [CompassFragmentModule::class])
+    @ContributesAndroidInjector()
     internal abstract fun compassFragment(): CompassFragment
+
 }
