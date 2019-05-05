@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Compass App</string>
-    <string name="latitude_user_input_hint">Latitude</string>
-    <string name="longitude_user_input_hint">Longitude</string>
+    <string name="user_input_hint_latitude">Latitude</string>
+    <string name="user_input_hint_longitude">Longitude</string>
 </resources>

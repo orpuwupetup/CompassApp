@@ -2,7 +2,6 @@ package com.matsuu.compassapp.ui.activities.compass
 
 import com.matsuu.compassapp.R
 import com.matsuu.compassapp.ui.activities.AbstractDefaultActivity
-import kotlinx.android.synthetic.main.activity_compass.*
 import javax.inject.Inject
 
 class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View {
@@ -11,10 +10,6 @@ class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View 
     lateinit var presenter: CompassActivityContract.Presenter
 
     override fun getLayout(): Int = R.layout.activity_compass
-
-    override fun setViews() {
-        textinput_longitude.error = "no longitude provided"
-    }
 
     override fun onResume() {
         super.onResume()
@@ -26,5 +21,8 @@ class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View 
         presenter.dropView()
 
         super.onPause()
+    }
+
+    override fun setViews() {
     }
 }

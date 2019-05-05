@@ -4,4 +4,8 @@
     <dimen name="material_design_smallest_padding_and_margin_size">8dp</dimen>
     <dimen name="material_design_large_padding_and_margin_size">24dp</dimen>
     <dimen name="lat_long_edit_text_half_spacing">2dp</dimen>
+
+    <dimen name="spacing_small">@dimen/material_design_smallest_padding_and_margin_size</dimen>
+    <dimen name="spacing_medium">@dimen/material_design_medium_padding_and_margin_size</dimen>
+    <dimen name="spacing_large">@dimen/material_design_large_padding_and_margin_size</dimen>
 </resources>

@@ -3,59 +3,61 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:background="@color/colorCompassActivityBackground"
         android:layout_height="match_parent"
+        android:background="@color/compassActivityBackground"
 >
 
     <ImageView
             android:id="@+id/image_compass_disc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/background_compass_with_disc"
-            android:layout_marginStart="@dimen/material_design_large_padding_and_margin_size"
-            android:layout_marginEnd="@dimen/material_design_large_padding_and_margin_size"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginEnd="@dimen/spacing_large"
             app:layout_constraintVertical_bias="0.3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/background_compass_with_disc"
+    />
 
     <ImageView
             android:id="@+id/button_wind_rose"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/ic_wind_rose_with_margin"
             app:layout_constraintBottom_toBottomOf="@id/image_compass_disc"
             app:layout_constraintLeft_toLeftOf="@id/image_compass_disc"
             app:layout_constraintRight_toRightOf="@id/image_compass_disc"
-            app:layout_constraintTop_toTopOf="@id/image_compass_disc"/>
+            app:layout_constraintTop_toTopOf="@id/image_compass_disc"
+            android:src="@drawable/ic_wind_rose_with_margin"
+    />
     
     <EditText
             android:id="@+id/textinput_latitude"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:hint="@string/latitude_user_input_hint"
-            style="@style/UserInputEditTextStyle"
-            android:layout_marginBottom="@dimen/material_design_smallest_padding_and_margin_size"
+            android:layout_marginBottom="@dimen/spacing_small"
             android:layout_marginEnd="@dimen/lat_long_edit_text_half_spacing"
-            android:layout_marginStart="@dimen/material_design_smallest_padding_and_margin_size"
+            android:layout_marginStart="@dimen/spacing_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/textinput_longitude"
             app:layout_constraintStart_toStartOf="parent"
+            android:hint="@string/user_input_hint_latitude"
+            style="@style/UserInputEditTextStyle"
     />
-    
+
     <EditText
             android:id="@+id/textinput_longitude"
-            style="@style/UserInputEditTextStyle"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:hint="@string/longitude_user_input_hint"
-            android:layout_marginBottom="@dimen/material_design_smallest_padding_and_margin_size"
-            android:layout_marginEnd="@dimen/material_design_smallest_padding_and_margin_size"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
             android:layout_marginStart="@dimen/lat_long_edit_text_half_spacing"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/textinput_latitude"
             app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/user_input_hint_longitude"
+            style="@style/UserInputEditTextStyle"
     />
 
 </android.support.constraint.ConstraintLayout>

@@ -3,6 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorEditTextBackground">#DBDADA</color>
-    <color name="colorCompassActivityBackground">#BEC0BE</color>
+    <color name="colorLighterGrey">#DBDADA</color>
+    <color name="colorGrey">#BEC0BE</color>
+
+    <!-- UI elements colors-->
+    <color name="compassActivityBackground">@color/colorGrey</color>
+    <color name="editTextBackground">@color/colorLighterGrey</color>
 </resources>
