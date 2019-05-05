@@ -2,7 +2,7 @@ package com.matsuu.compassapp.ui.activities.compass
 
 import javax.inject.Inject
 
-class CompassPresenter @Inject constructor(): CompassActivityContract.Presenter {
+class CompassActivityPresenter @Inject constructor(): CompassActivityContract.Presenter {
 
     private var view: CompassActivityContract.View? = null
 

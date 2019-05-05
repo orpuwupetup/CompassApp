@@ -7,42 +7,31 @@
         android:background="@color/compassActivityBackground"
 >
 
-    <ImageView
-            android:id="@+id/image_compass_disc"
+    <fragment
+            android:id="@+id/fragment_compass"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+              android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginEnd="@dimen/spacing_large"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/background_compass_with_disc"
-    />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            android:name="com.matsuu.compassapp.ui.fragments.compass.CompassFragment"
+            />
 
-    <ImageView
-            android:id="@+id/button_wind_rose"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/image_compass_disc"
-            app:layout_constraintLeft_toLeftOf="@id/image_compass_disc"
-            app:layout_constraintRight_toRightOf="@id/image_compass_disc"
-            app:layout_constraintTop_toTopOf="@id/image_compass_disc"
-            android:src="@drawable/ic_wind_rose_with_margin"
-    />
-    
     <fragment
             android:id="@+id/fragment_lat_long_user_input"
             android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="@dimen/spacing_small"
-              android:layout_marginEnd="@dimen/spacing_small"
-              android:layout_marginBottom="@dimen/spacing_small"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              android:name="com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragment"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:name="com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragment"
     />
 
 </android.support.constraint.ConstraintLayout>
