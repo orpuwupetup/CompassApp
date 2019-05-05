@@ -1,9 +1,9 @@
-package com.matsuu.compassapp.ui.activities.compass
+package com.matsuu.compassapp.ui.fragments.latlonginput
 
 import com.matsuu.compassapp.ui.BasePresenter
 import com.matsuu.compassapp.ui.BaseView
 
-interface CompassActivityContract {
+interface LatLongInputFragmentContract {
 
     interface View: BaseView<Presenter>
 

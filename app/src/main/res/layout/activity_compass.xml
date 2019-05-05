@@ -32,32 +32,17 @@
             android:src="@drawable/ic_wind_rose_with_margin"
     />
     
-    <EditText
-            android:id="@+id/textinput_latitude"
-            android:layout_height="wrap_content"
+    <fragment
+            android:id="@+id/fragment_lat_long_user_input"
             android:layout_width="0dp"
-            android:layout_marginBottom="@dimen/spacing_small"
-            android:layout_marginEnd="@dimen/lat_long_edit_text_half_spacing"
-            android:layout_marginStart="@dimen/spacing_small"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/textinput_longitude"
-            app:layout_constraintStart_toStartOf="parent"
-            android:hint="@string/user_input_hint_latitude"
-            style="@style/UserInputEditTextStyle"
-    />
-
-    <EditText
-            android:id="@+id/textinput_longitude"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_marginBottom="@dimen/spacing_small"
-            android:layout_marginEnd="@dimen/spacing_small"
-            android:layout_marginStart="@dimen/lat_long_edit_text_half_spacing"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/textinput_latitude"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:hint="@string/user_input_hint_longitude"
-            style="@style/UserInputEditTextStyle"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="@dimen/spacing_small"
+              android:layout_marginEnd="@dimen/spacing_small"
+              android:layout_marginBottom="@dimen/spacing_small"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              android:name="com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragment"
     />
 
 </android.support.constraint.ConstraintLayout>

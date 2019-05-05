@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+            android:id="@+id/textinput_latitude"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/lat_long_edit_text_half_spacing"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textinput_longitude"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="@string/user_input_hint_latitude"
+            style="@style/UserInputEditTextStyle"
+    />
+
+    <EditText
+            android:id="@+id/textinput_longitude"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/lat_long_edit_text_half_spacing"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textinput_latitude"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/user_input_hint_longitude"
+            style="@style/UserInputEditTextStyle"
+    />
+
+</android.support.constraint.ConstraintLayout>
