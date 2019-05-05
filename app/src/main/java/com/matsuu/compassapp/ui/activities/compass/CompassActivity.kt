@@ -1,10 +1,13 @@
 package com.matsuu.compassapp.ui.activities.compass
 
+import android.widget.Toast
 import com.matsuu.compassapp.R
 import com.matsuu.compassapp.ui.activities.AbstractDefaultActivity
+import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragment
+import kotlinx.android.synthetic.main.activity_compass.*
 import javax.inject.Inject
 
-class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View {
+class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View, LatLongInputFragment.LatLongInputChangedListener {
 
     @Inject
     lateinit var presenter: CompassActivityContract.Presenter
@@ -24,5 +27,14 @@ class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View 
     }
 
     override fun setViews() {
+        (fragment_lat_long_user_input as LatLongInputFragment).setLatLongInputChangedListener(this)
+    }
+
+    override fun onCorrectLatLongProvided(latitude: Float, longitude: Float) {
+        Toast.makeText(this, "navigate", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onWrongInputProvided() {
+        Toast.makeText(this, "stop navigating", Toast.LENGTH_SHORT).show()
     }
 }

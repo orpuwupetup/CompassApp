@@ -29,7 +29,7 @@ class AndroidCompassSensor(private val sensorManager: SensorManager) : SensorEve
                 this,
                 accelerometer,
                 SensorManager.SENSOR_DELAY_NORMAL,
-                SensorManager.SENSOR_DELAY_GAME
+                SensorManager.SENSOR_DELAY_UI
             )
         }
 
@@ -38,7 +38,7 @@ class AndroidCompassSensor(private val sensorManager: SensorManager) : SensorEve
                 this,
                 magneticField,
                 SensorManager.SENSOR_DELAY_NORMAL,
-                SensorManager.SENSOR_DELAY_GAME
+                SensorManager.SENSOR_DELAY_UI
             )
         }
     }
