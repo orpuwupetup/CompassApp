@@ -11,5 +11,6 @@ interface CompassFragmentContract {
 
     interface Presenter: BasePresenter<View> {
         fun startNavigation(lat: Float, long: Float)
+        fun stopNavigation()
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.hardware.SensorManager
 import com.google.android.gms.location.LocationServices
 import com.matsuu.compassapp.data.location.AndroidLocationProvider
+import com.matsuu.compassapp.data.location.LocationProvider
 import com.matsuu.compassapp.data.sensor.compass.AndroidCompassSensor
 import com.matsuu.compassapp.data.sensor.compass.CompassSensor
 import com.matsuu.compassapp.ui.activities.compass.CompassActivity
@@ -28,7 +29,7 @@ abstract class CompassFragmentModule {
 
         @Provides
         @JvmStatic
-        fun provideAndroidLocationProvider(context: CompassActivity) =
+        fun provideAndroidLocationProvider(context: CompassActivity) : LocationProvider =
             AndroidLocationProvider(LocationServices.getFusedLocationProviderClient(context))
     }
 }

@@ -44,6 +44,6 @@ class CompassFragment : CompassFragmentContract.View, AbstractFragment(), Compas
     }
 
     override fun stopNavigation() {
-        //
+        presenter.stopNavigation()
     }
 }
