@@ -1,6 +1,7 @@
-package com.matsuu.compassapp.data.location
+package com.matsuu.compassapp.data.location.usableinterface
 
 import android.location.Location
+import com.matsuu.compassapp.data.location.AndroidLocationProvider
 
 interface LocationProvider {
 

@@ -1,8 +1,8 @@
 package com.matsuu.compassapp.ui.fragments.compass
 
 import android.location.Location
-import com.matsuu.compassapp.data.location.LocationProvider
-import com.matsuu.compassapp.data.sensor.compass.CompassSensor
+import com.matsuu.compassapp.data.location.usableinterface.LocationProvider
+import com.matsuu.compassapp.data.sensor.compass.usableinterface.CompassSensor
 import com.matsuu.compassapp.utils.location.LocationUtils
 import timber.log.Timber
 import javax.inject.Inject
@@ -42,7 +42,7 @@ class CompassFragmentPresenter @Inject constructor(
         if (isNavigating)
             with(androidLocationProvider) {
                 setLocationUpdatesListener { userLocation ->
-                    Timber.e("${userLocation.longitude}")
+                    Timber.d("$userLocation")
 
                     calculateBearingAndMagneticDeclination(userLocation)
 

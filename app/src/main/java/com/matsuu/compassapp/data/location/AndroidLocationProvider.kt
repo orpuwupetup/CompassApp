@@ -6,6 +6,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
+import com.matsuu.compassapp.data.location.usableinterface.LocationProvider
 import timber.log.Timber
 
 class AndroidLocationProvider(private val fusedLocationProviderClient: FusedLocationProviderClient) :

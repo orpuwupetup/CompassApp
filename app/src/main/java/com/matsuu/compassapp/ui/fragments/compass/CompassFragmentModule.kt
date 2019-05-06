@@ -4,9 +4,9 @@ import android.content.Context
 import android.hardware.SensorManager
 import com.google.android.gms.location.LocationServices
 import com.matsuu.compassapp.data.location.AndroidLocationProvider
-import com.matsuu.compassapp.data.location.LocationProvider
+import com.matsuu.compassapp.data.location.usableinterface.LocationProvider
 import com.matsuu.compassapp.data.sensor.compass.AndroidCompassSensor
-import com.matsuu.compassapp.data.sensor.compass.CompassSensor
+import com.matsuu.compassapp.data.sensor.compass.usableinterface.CompassSensor
 import com.matsuu.compassapp.ui.activities.compass.CompassActivity
 import com.matsuu.compassapp.utils.providers.CompassAnimationProvider
 import dagger.Module

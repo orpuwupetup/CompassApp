@@ -1,4 +1,6 @@
-package com.matsuu.compassapp.data.sensor.compass
+package com.matsuu.compassapp.data.sensor.compass.usableinterface
+
+import com.matsuu.compassapp.data.sensor.compass.AndroidCompassSensor
 
 interface CompassSensor {
 

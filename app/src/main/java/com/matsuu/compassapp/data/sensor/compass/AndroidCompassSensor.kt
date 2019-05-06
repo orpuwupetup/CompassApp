@@ -4,10 +4,12 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorManager
 import com.matsuu.compassapp.data.sensor.SensorEventListenerAdapter
+import com.matsuu.compassapp.data.sensor.compass.usableinterface.CompassSensor
 import com.matsuu.compassapp.utils.convertAzimuthFromRadiansToDegrees
 import timber.log.Timber
 
-class AndroidCompassSensor(private val sensorManager: SensorManager) : SensorEventListenerAdapter(), CompassSensor {
+class AndroidCompassSensor(private val sensorManager: SensorManager) : SensorEventListenerAdapter(),
+    CompassSensor {
 
     private val accelerometerReading = FloatArray(3)
     private val magnetometerReading = FloatArray(3)
