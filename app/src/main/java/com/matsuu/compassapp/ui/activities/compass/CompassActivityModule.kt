@@ -1,5 +1,8 @@
 package com.matsuu.compassapp.ui.activities.compass
 
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
+import com.google.android.gms.location.SettingsClient
 import com.matsuu.compassapp.di.annotations.ActivityScoped
 import com.matsuu.compassapp.di.annotations.FragmentScoped
 import com.matsuu.compassapp.ui.fragments.compass.CompassFragment
@@ -11,6 +14,7 @@ import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragmentModul
 import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputPresenter
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 
 @Module
@@ -38,5 +42,17 @@ abstract class CompassActivityModule {
     @FragmentScoped
     @ContributesAndroidInjector()
     internal abstract fun compassFragment(): CompassFragment
+
+    @Module
+    companion object {
+
+        @JvmStatic
+        @Provides
+        fun provideLocationSettingsBuilder(): LocationSettingsRequest.Builder = LocationSettingsRequest.Builder()
+
+        @JvmStatic
+        @Provides
+        fun provideLocationSettingsClient(context: CompassActivity): SettingsClient = LocationServices.getSettingsClient(context)
+    }
 
 }

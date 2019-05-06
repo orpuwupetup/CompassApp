@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.sensor
+package com.matsuu.compassapp.data.sensor
 
 import android.hardware.Sensor
 import android.hardware.SensorEvent

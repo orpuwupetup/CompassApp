@@ -9,5 +9,7 @@ interface CompassFragmentContract {
         fun rotateCompass(lastRotationDegree: Float, currentRotationDegree: Float)
     }
 
-    interface Presenter: BasePresenter<View>
+    interface Presenter: BasePresenter<View> {
+        fun startNavigation(lat: Float, long: Float)
+    }
 }

@@ -1,13 +1,15 @@
 package com.matsuu.compassapp.ui.fragments.compass
 
+
 import com.matsuu.compassapp.R
 import com.matsuu.compassapp.ui.fragments.AbstractFragment
+import com.matsuu.compassapp.ui.fragments.compass.usableinterface.Compass
 import com.matsuu.compassapp.utils.providers.CompassAnimationProvider
 import kotlinx.android.synthetic.main.fragment_compass.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class CompassFragment : CompassFragmentContract.View, AbstractFragment() {
+class CompassFragment : CompassFragmentContract.View, AbstractFragment(), Compass {
 
     @Inject
     lateinit var presenter: CompassFragmentContract.Presenter
@@ -35,5 +37,13 @@ class CompassFragment : CompassFragmentContract.View, AbstractFragment() {
                 animationProvider.provideCompassRotationAnimation(
                     lastRotationDegree,
                     currentRotationDegree))
+    }
+
+    override fun startNavigation(lat: Float, long: Float) {
+        presenter.startNavigation(lat, long)
+    }
+
+    override fun stopNavigation() {
+        //
     }
 }

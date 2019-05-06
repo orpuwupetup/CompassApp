@@ -1,9 +1,9 @@
-package com.matsuu.compassapp.sensor.compass
+package com.matsuu.compassapp.data.sensor.compass
 
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorManager
-import com.matsuu.compassapp.sensor.SensorEventListenerAdapter
+import com.matsuu.compassapp.data.sensor.SensorEventListenerAdapter
 import com.matsuu.compassapp.utils.convertAzimuthFromRadiansToDegrees
 import timber.log.Timber
 

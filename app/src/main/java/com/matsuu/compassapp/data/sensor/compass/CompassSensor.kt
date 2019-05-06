@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.sensor.compass
+package com.matsuu.compassapp.data.sensor.compass
 
 interface CompassSensor {
 

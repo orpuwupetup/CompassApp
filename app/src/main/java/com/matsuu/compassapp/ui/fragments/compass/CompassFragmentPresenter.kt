@@ -1,9 +1,12 @@
 package com.matsuu.compassapp.ui.fragments.compass
 
-import com.matsuu.compassapp.sensor.compass.CompassSensor
+import com.matsuu.compassapp.data.location.AndroidLocationProvider
+import com.matsuu.compassapp.data.sensor.compass.CompassSensor
 import javax.inject.Inject
 
-class CompassFragmentPresenter @Inject constructor(private val compassSensor: CompassSensor) :
+class CompassFragmentPresenter @Inject constructor(
+    private val compassSensor: CompassSensor,
+    private val androidLocationProvider: AndroidLocationProvider) :
     CompassFragmentContract.Presenter {
 
     private var view: CompassFragmentContract.View? = null
@@ -21,6 +24,10 @@ class CompassFragmentPresenter @Inject constructor(private val compassSensor: Co
         with(compassSensor) {
 
             setPhoneOrientationChangeListener { currentlyFacedAzimuth ->
+                /*
+                it equals inverted faced azimuth, because we want to rotate compass wind rose view in the opposite direction,
+                so that N will be actually facing magnetic north pole
+                */
                 currentCompassRotationDegree = -currentlyFacedAzimuth
 
                 view?.rotateCompass(lastCompassRotationDegree, currentCompassRotationDegree)
@@ -30,6 +37,10 @@ class CompassFragmentPresenter @Inject constructor(private val compassSensor: Co
 
             registerSensorListener()
         }
+    }
+
+    override fun startNavigation(lat: Float, long: Float) {
+        androidLocationProvider.getLastKnownLocation()
     }
 
     override fun dropView() {

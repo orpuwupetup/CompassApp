@@ -6,4 +6,6 @@
     <string name="error_wrong_longitude">Wrong longitude</string>
     <string name="error_no_latitude">No latitude</string>
     <string name="error_no_longitude">No longitude</string>
+    <string name="request_location_permission_rationale">To start navigation, Compass needs to know your location
+    </string>
 </resources>

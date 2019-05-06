@@ -3,11 +3,13 @@ package com.matsuu.compassapp.ui.fragments.latlonginput
 import android.view.View
 import com.matsuu.compassapp.R
 import com.matsuu.compassapp.ui.fragments.AbstractFragment
+import com.matsuu.compassapp.ui.fragments.latlonginput.usableinterface.LatLongUserInput
 import com.matsuu.compassapp.utils.afterTextChanged
 import kotlinx.android.synthetic.main.fragment_lat_long_input.*
 import javax.inject.Inject
 
-class LatLongInputFragment : LatLongInputFragmentContract.View, AbstractFragment(), LatLongUserInput {
+class LatLongInputFragment : LatLongInputFragmentContract.View, AbstractFragment(),
+    LatLongUserInput {
 
     enum class LatLongInputError {
         WRONG_LATITUDE,
