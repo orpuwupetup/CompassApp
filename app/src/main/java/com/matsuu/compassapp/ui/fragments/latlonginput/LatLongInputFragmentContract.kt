@@ -7,7 +7,7 @@ interface LatLongInputFragmentContract {
 
     interface View: BaseView<Presenter> {
         fun hideErrors()
-        fun showError(latLongInputError: List<LatLongInputFragment.LatLongInputError>)
+        fun showErrors(latLongInputError: List<LatLongInputFragment.LatLongInputError>)
         fun notifyListenerAboutCorrectLatLongInput(latitude: Float, longitude: Float)
         fun notifyListenerAboutWrongUserInput()
     }

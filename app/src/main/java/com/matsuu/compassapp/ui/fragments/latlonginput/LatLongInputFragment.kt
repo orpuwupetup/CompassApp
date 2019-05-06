@@ -7,7 +7,7 @@ import com.matsuu.compassapp.utils.afterTextChanged
 import kotlinx.android.synthetic.main.fragment_lat_long_input.*
 import javax.inject.Inject
 
-class LatLongInputFragment : LatLongInputFragmentContract.View, AbstractFragment() {
+class LatLongInputFragment : LatLongInputFragmentContract.View, AbstractFragment(), LatLongUserInput {
 
     enum class LatLongInputError {
         WRONG_LATITUDE,
@@ -52,6 +52,7 @@ class LatLongInputFragment : LatLongInputFragmentContract.View, AbstractFragment
 
     private fun clearErrors() {
         text_input_errors.text = null
+        errorBuilder.clear()
     }
 
     override fun hideErrors() {
@@ -59,12 +60,16 @@ class LatLongInputFragment : LatLongInputFragmentContract.View, AbstractFragment
         text_input_errors.visibility = View.GONE
     }
 
-    override fun showError(latLongInputError: List<LatLongInputError>) {
+    override fun showErrors(latLongInputError: List<LatLongInputError>) {
         clearErrors()
         text_input_errors.visibility = View.VISIBLE
 
-        errorBuilder.clear()
+        createErrorMessage(latLongInputError)
 
+        text_input_errors.text = errorBuilder.toString()
+    }
+
+    private fun createErrorMessage(latLongInputError: List<LatLongInputError>) {
         for (error in latLongInputError) {
             if (errorBuilder.isNotBlank())
                 errorBuilder.appendln()
@@ -75,8 +80,6 @@ class LatLongInputFragment : LatLongInputFragmentContract.View, AbstractFragment
                 LatLongInputError.NO_LONGITUDE -> getString(R.string.error_no_longitude)
             })
         }
-
-        text_input_errors.text = errorBuilder.toString()
     }
 
     override fun notifyListenerAboutCorrectLatLongInput(latitude: Float, longitude: Float) {
@@ -87,7 +90,7 @@ class LatLongInputFragment : LatLongInputFragmentContract.View, AbstractFragment
         onLatLongInputChangedListener?.onWrongInputProvided()
     }
 
-    fun setLatLongInputChangedListener(listener: LatLongInputChangedListener?) {
+    override fun setLatLongInputChangedListener(listener: LatLongInputChangedListener?) {
         this.onLatLongInputChangedListener = listener
     }
 
