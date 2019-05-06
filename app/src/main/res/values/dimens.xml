@@ -8,4 +8,5 @@
     <dimen name="spacing_small">@dimen/material_design_smallest_padding_and_margin_size</dimen>
     <dimen name="spacing_medium">@dimen/material_design_medium_padding_and_margin_size</dimen>
     <dimen name="spacing_large">@dimen/material_design_large_padding_and_margin_size</dimen>
+    <dimen name="corner_radius_background_lat_long_error">16dp</dimen>
 </resources>

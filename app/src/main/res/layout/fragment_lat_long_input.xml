@@ -7,16 +7,24 @@
 
     <TextView
             android:id="@+id/text_input_errors"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/barrier_input_error"
             android:visibility="gone"
-            android:gravity="center"
             tools:text="Error"
             style="@style/LatLongInputErrorTextStyle"
+    />
+
+    <android.support.constraint.Barrier
+            android:id="@+id/barrier_input_error"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:barrierDirection="top"
+            app:barrierAllowsGoneWidgets="false"
+            app:constraint_referenced_ids="textinput_latitude,textinput_longitude"
     />
 
     <EditText
@@ -24,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_marginEnd="@dimen/lat_long_edit_text_half_spacing"
+            android:layout_marginBottom="@dimen/spacing_small"
             app:layout_constraintTop_toBottomOf="@id/text_input_errors"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/textinput_longitude"
@@ -37,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_marginStart="@dimen/lat_long_edit_text_half_spacing"
+            android:layout_marginBottom="@dimen/spacing_small"
             app:layout_constraintTop_toBottomOf="@id/text_input_errors"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/textinput_latitude"

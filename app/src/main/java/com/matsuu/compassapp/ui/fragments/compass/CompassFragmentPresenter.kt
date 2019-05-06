@@ -43,6 +43,5 @@ class CompassFragmentPresenter @Inject constructor(private val compassSensor: Co
             unregisterSensorListener()
             setPhoneOrientationChangeListener(null)
         }
-
     }
 }
