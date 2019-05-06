@@ -27,4 +27,16 @@
             android:src="@drawable/ic_wind_rose_with_margin"
     />
 
+    <ImageView
+            android:id="@+id/compass_part_navigation_cursor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/image_compass_disc"
+            app:layout_constraintLeft_toLeftOf="@id/image_compass_disc"
+            app:layout_constraintRight_toRightOf="@id/image_compass_disc"
+            app:layout_constraintTop_toTopOf="@id/image_compass_disc"
+            android:src="@drawable/navigation_cursor"
+    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

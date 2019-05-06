@@ -1,6 +1,7 @@
 package com.matsuu.compassapp.ui.fragments.compass
 
 
+import android.view.View
 import com.matsuu.compassapp.R
 import com.matsuu.compassapp.ui.fragments.AbstractFragment
 import com.matsuu.compassapp.ui.fragments.compass.usableinterface.Compass
@@ -37,6 +38,25 @@ class CompassFragment : CompassFragmentContract.View, AbstractFragment(), Compas
                 animationProvider.provideCompassRotationAnimation(
                     lastRotationDegree,
                     currentRotationDegree))
+    }
+
+    override fun rotateNavigationCursor(lastRotationDegree: Float, currentRotationDegree: Float) {
+        compass_part_navigation_cursor
+            .startAnimation(
+                animationProvider.provideCompassRotationAnimation(
+                    lastRotationDegree,
+                    currentRotationDegree))
+    }
+
+    override fun showNavigationCursor() {
+        compass_part_navigation_cursor.visibility = View.VISIBLE
+    }
+
+    override fun hideNavigationCursor() {
+        // clear animation needed so that cursor will disappear even if fill after attribute of rotation animation
+        // is set to true
+        compass_part_navigation_cursor.clearAnimation()
+        compass_part_navigation_cursor.visibility = View.GONE
     }
 
     override fun startNavigation(lat: Float, long: Float) {

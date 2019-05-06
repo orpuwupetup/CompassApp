@@ -1,7 +1,6 @@
 package com.matsuu.compassapp.ui.fragments.compass
 
 import android.location.Location
-import android.location.LocationManager
 import com.matsuu.compassapp.data.location.LocationProvider
 import com.matsuu.compassapp.data.sensor.compass.CompassSensor
 import com.matsuu.compassapp.utils.location.LocationUtils
@@ -23,6 +22,13 @@ class CompassFragmentPresenter @Inject constructor(
     private var currentDestinationLongitude = 0f
 
     private var isNavigating = false
+    private var lastNavigationCursorRotationDegree = 0f
+    private var currentNavigationCursorRotationDegree = 0f
+    private var currentMagneticDeclination = 0f
+
+    // approximate initial bearing in degrees East of true North when traveling along the shortest path between user
+    // location and provided destination
+    private var currentBearingFromUserLocationToDestination = 0f
 
     override fun takeView(view: CompassFragmentContract.View) {
         this.view = view
@@ -34,24 +40,23 @@ class CompassFragmentPresenter @Inject constructor(
 
     private fun setUpLocationUpdates() {
         if (isNavigating)
-            with(androidLocationProvider){
+            with(androidLocationProvider) {
                 setLocationUpdatesListener { userLocation ->
                     Timber.e("${userLocation.longitude}")
 
-                    setUpNavigation(userLocation)
+                    calculateBearingAndMagneticDeclination(userLocation)
+
                 }
                 startLocationUpdates()
             }
     }
 
-    private fun setUpNavigation(userLocation: Location) {
+    private fun calculateBearingAndMagneticDeclination(userLocation: Location) {
 
-
-        //TODO show navigation, rotate accordingly
         val destinationLocation = LocationUtils.createLocation(currentDestinationLatitude, currentDestinationLongitude)
 
-
-        Timber.e("bearing to destination: ${userLocation.bearingTo(destinationLocation)}")
+        currentBearingFromUserLocationToDestination = userLocation.bearingTo(destinationLocation)
+        currentMagneticDeclination = LocationUtils.calculateMagneticDeclination(userLocation)
     }
 
     private fun setCompassListeners() {
@@ -64,6 +69,10 @@ class CompassFragmentPresenter @Inject constructor(
                 */
                 currentCompassRotationDegree = -currentlyFacedAzimuth
 
+                if (isNavigating) {
+                    rotateNavigationCursor(currentCompassRotationDegree)
+                }
+
                 view?.rotateCompass(lastCompassRotationDegree, currentCompassRotationDegree)
 
                 lastCompassRotationDegree = -currentlyFacedAzimuth
@@ -73,8 +82,25 @@ class CompassFragmentPresenter @Inject constructor(
         }
     }
 
+    private fun rotateNavigationCursor(currentCompassRotationDegree: Float) {
+        currentNavigationCursorRotationDegree = calculateNavigationCursorRotation(currentCompassRotationDegree)
+
+        view?.rotateNavigationCursor(lastNavigationCursorRotationDegree, currentNavigationCursorRotationDegree)
+
+        lastNavigationCursorRotationDegree = currentNavigationCursorRotationDegree
+    }
+
+    private fun calculateNavigationCursorRotation(currentCompassRotationDegree: Float): Float =
+    /*
+    navigation cursor rotation equals inversion (same as with wind rose, we want to actually rotate cursor in opposite
+    direction of what we want to point at) of true north (magnetic north, which is inversion of compass rotation,
+    plus magnetic declination) + bearing to
+    */
+        -((-currentCompassRotationDegree) + currentMagneticDeclination + currentBearingFromUserLocationToDestination)
+
     override fun startNavigation(lat: Float, long: Float) {
         isNavigating = true
+        view?.showNavigationCursor()
 
         currentDestinationLatitude = lat
         currentDestinationLongitude = long
@@ -84,7 +110,7 @@ class CompassFragmentPresenter @Inject constructor(
 
     override fun stopNavigation() {
         isNavigating = false
-
+        view?.hideNavigationCursor()
         unregisterLocationListeners()
     }
 
@@ -96,7 +122,7 @@ class CompassFragmentPresenter @Inject constructor(
     }
 
     private fun unregisterLocationListeners() {
-        with(androidLocationProvider){
+        with(androidLocationProvider) {
             setLocationUpdatesListener(null)
             stopLocationUpdates()
         }
