@@ -50,6 +50,11 @@ class AndroidLocationProvider(private val fusedLocationProviderClient: FusedLoca
     private fun getLastKnownLocation() {
         // get last known location
         fusedLocationProviderClient.lastLocation.addOnSuccessListener { location: Location? ->
+            // if there is last known location, notify listener about it immediately so that user don't have to wait for
+            // next location update and have better experience with using this app
+            location?.let {  lastKnownLocation ->
+                locationUpdatesListener?.onLocationProvided(lastKnownLocation)
+            }
             currentLocation = location
         }
     }
