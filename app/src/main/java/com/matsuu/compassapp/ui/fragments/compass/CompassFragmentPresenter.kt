@@ -92,11 +92,11 @@ class CompassFragmentPresenter @Inject constructor(
 
     private fun calculateNavigationCursorRotation(currentCompassRotationDegree: Float): Float =
     /*
-    navigation cursor rotation equals inversion (same as with wind rose, we want to actually rotate cursor in opposite
-    direction of what we want to point at) of true north (magnetic north, which is inversion of compass rotation,
-    plus magnetic declination) + bearing to
+    face in the same direction as magnetic north, than add current magnetic declination (to get real north) and than
+    add bearing from user location to his destination (number of degrees East from true north indicating route along the
+    shortest path)
     */
-        -((-currentCompassRotationDegree) + currentMagneticDeclination + currentBearingFromUserLocationToDestination)
+        currentCompassRotationDegree + currentMagneticDeclination + currentBearingFromUserLocationToDestination
 
     override fun startNavigation(lat: Float, long: Float) {
         isNavigating = true
