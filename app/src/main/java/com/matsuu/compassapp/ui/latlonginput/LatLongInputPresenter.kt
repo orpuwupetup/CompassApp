@@ -1,8 +1,9 @@
-package com.matsuu.compassapp.ui.fragments.latlonginput
+package com.matsuu.compassapp.ui.latlonginput
 
 import javax.inject.Inject
 
-class LatLongInputPresenter @Inject constructor() : LatLongInputFragmentContract.Presenter {
+class LatLongInputPresenter @Inject constructor() :
+    LatLongInputFragmentContract.Presenter {
 
     private var view: LatLongInputFragmentContract.View? = null
 
@@ -61,7 +62,9 @@ class LatLongInputPresenter @Inject constructor() : LatLongInputFragmentContract
     }
 
     private fun checkLongitude() {
-        if (!checkIfEmpty(currentLongitude, LatLongInputFragment.LatLongInputError.NO_LONGITUDE)) {
+        if (!checkIfEmpty(currentLongitude,
+                LatLongInputFragment.LatLongInputError.NO_LONGITUDE
+            )) {
             // if longitude passed checkIfEmpty it won't be null
             if (currentLongitude!!.toFloat() !in (-180f..180f)) {
                 currentErrors.add(LatLongInputFragment.LatLongInputError.WRONG_LONGITUDE)
@@ -70,7 +73,9 @@ class LatLongInputPresenter @Inject constructor() : LatLongInputFragmentContract
     }
 
     private fun checkLatitude() {
-        if (!checkIfEmpty(currentLatitude, LatLongInputFragment.LatLongInputError.NO_LATITUDE)) {
+        if (!checkIfEmpty(currentLatitude,
+                LatLongInputFragment.LatLongInputError.NO_LATITUDE
+            )) {
             // if latitude passed checkIfEmpty it won't be null
             if (currentLatitude!!.toFloat() !in (-90f..90f)) {
                 currentErrors.add(LatLongInputFragment.LatLongInputError.WRONG_LATITUDE)

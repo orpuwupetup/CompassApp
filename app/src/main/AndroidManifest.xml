@@ -14,7 +14,7 @@
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-                android:name=".ui.activities.compass.CompassActivity"
+                android:name=".ui.main.MainActivity"
                 android:screenOrientation="portrait"
                 android:windowSoftInputMode="adjustResize"
         >

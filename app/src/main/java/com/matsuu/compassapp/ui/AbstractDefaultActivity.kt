@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.ui.activities
+package com.matsuu.compassapp.ui
 
 import android.os.Bundle
 import android.os.PersistableBundle

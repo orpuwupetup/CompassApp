@@ -1,9 +1,9 @@
-package com.matsuu.compassapp.ui.activities.compass
+package com.matsuu.compassapp.ui.main
 
 import com.matsuu.compassapp.ui.BasePresenter
 import com.matsuu.compassapp.ui.BaseView
 
-interface CompassActivityContract {
+interface MainActivityContract {
 
     interface View: BaseView<Presenter>
 

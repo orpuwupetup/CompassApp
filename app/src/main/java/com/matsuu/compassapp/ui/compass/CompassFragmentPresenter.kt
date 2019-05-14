@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.ui.fragments.compass
+package com.matsuu.compassapp.ui.compass
 
 import android.location.Location
 import com.matsuu.compassapp.data.location.usableinterface.LocationProvider

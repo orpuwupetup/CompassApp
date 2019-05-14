@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.ui.fragments
+package com.matsuu.compassapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

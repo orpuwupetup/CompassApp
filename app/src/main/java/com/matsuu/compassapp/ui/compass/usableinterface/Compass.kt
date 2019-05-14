@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.ui.fragments.compass.usableinterface
+package com.matsuu.compassapp.ui.compass.usableinterface
 
 interface Compass {
     fun startNavigation(lat: Float, long: Float)

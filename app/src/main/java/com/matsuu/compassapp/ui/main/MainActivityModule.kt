@@ -1,29 +1,28 @@
-package com.matsuu.compassapp.ui.activities.compass
+package com.matsuu.compassapp.ui.main
 
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.SettingsClient
 import com.matsuu.compassapp.di.annotations.ActivityScoped
 import com.matsuu.compassapp.di.annotations.FragmentScoped
-import com.matsuu.compassapp.ui.fragments.compass.CompassFragment
-import com.matsuu.compassapp.ui.fragments.compass.CompassFragmentContract
-import com.matsuu.compassapp.ui.fragments.compass.CompassFragmentPresenter
-import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragment
-import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragmentContract
-import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragmentModule
-import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputPresenter
+import com.matsuu.compassapp.ui.compass.CompassFragment
+import com.matsuu.compassapp.ui.compass.CompassFragmentContract
+import com.matsuu.compassapp.ui.compass.CompassFragmentPresenter
+import com.matsuu.compassapp.ui.latlonginput.LatLongInputFragment
+import com.matsuu.compassapp.ui.latlonginput.LatLongInputFragmentContract
+import com.matsuu.compassapp.ui.latlonginput.LatLongInputPresenter
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 
 @Module
-abstract class CompassActivityModule {
+abstract class MainActivityModule {
 
     @ActivityScoped
     @Binds
-    internal abstract fun provideCompassPresenter(presenter: CompassActivityPresenter):
-            CompassActivityContract.Presenter
+    internal abstract fun provideCompassPresenter(presenter: MainActivityPresenter):
+            MainActivityContract.Presenter
 
     @ActivityScoped
     @Binds
@@ -52,7 +51,7 @@ abstract class CompassActivityModule {
 
         @JvmStatic
         @Provides
-        fun provideLocationSettingsClient(context: CompassActivity): SettingsClient = LocationServices.getSettingsClient(context)
+        fun provideLocationSettingsClient(context: MainActivity): SettingsClient = LocationServices.getSettingsClient(context)
     }
 
 }

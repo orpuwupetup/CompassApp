@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.ui.fragments.latlonginput
+package com.matsuu.compassapp.ui.latlonginput
 
 import dagger.Module
 import dagger.Provides

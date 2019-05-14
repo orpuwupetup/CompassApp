@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.ui.activities.compass
+package com.matsuu.compassapp.ui.main
 
 import android.app.Activity
 import android.content.Intent
@@ -10,20 +10,20 @@ import com.google.android.gms.location.SettingsClient
 import com.google.android.gms.tasks.Task
 import com.matsuu.compassapp.R
 import com.matsuu.compassapp.data.location.AndroidLocationProvider
-import com.matsuu.compassapp.ui.activities.AbstractDefaultActivity
-import com.matsuu.compassapp.ui.fragments.compass.usableinterface.Compass
-import com.matsuu.compassapp.ui.fragments.latlonginput.LatLongInputFragment
-import com.matsuu.compassapp.ui.fragments.latlonginput.usableinterface.LatLongUserInput
+import com.matsuu.compassapp.ui.AbstractDefaultActivity
+import com.matsuu.compassapp.ui.compass.usableinterface.Compass
+import com.matsuu.compassapp.ui.latlonginput.LatLongInputFragment
+import com.matsuu.compassapp.ui.latlonginput.usableinterface.LatLongUserInput
 import kotlinx.android.synthetic.main.activity_compass.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import javax.inject.Inject
 
-class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View,
+class MainActivity : AbstractDefaultActivity(), MainActivityContract.View,
     LatLongInputFragment.LatLongInputChangedListener, EasyPermissions.PermissionCallbacks {
 
     @Inject
-    lateinit var presenter: CompassActivityContract.Presenter
+    lateinit var presenter: MainActivityContract.Presenter
 
     @Inject
     lateinit var locationSettingsRequestBuilder: LocationSettingsRequest.Builder
@@ -58,7 +58,7 @@ class CompassActivity : AbstractDefaultActivity(), CompassActivityContract.View,
 
     override fun setViews() {
         latLongInput = (fragment_lat_long_user_input as LatLongUserInput).apply {
-            setLatLongInputChangedListener(this@CompassActivity)
+            setLatLongInputChangedListener(this@MainActivity)
         }
         compass = fragment_compass as Compass
     }

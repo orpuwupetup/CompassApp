@@ -1,16 +1,17 @@
-package com.matsuu.compassapp.ui.fragments.compass
+package com.matsuu.compassapp.ui.compass
 
 
 import android.view.View
 import com.matsuu.compassapp.R
-import com.matsuu.compassapp.ui.fragments.AbstractFragment
-import com.matsuu.compassapp.ui.fragments.compass.usableinterface.Compass
+import com.matsuu.compassapp.ui.AbstractFragment
+import com.matsuu.compassapp.ui.compass.usableinterface.Compass
 import com.matsuu.compassapp.utils.providers.CompassAnimationProvider
 import kotlinx.android.synthetic.main.fragment_compass.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class CompassFragment : CompassFragmentContract.View, AbstractFragment(), Compass {
+class CompassFragment : CompassFragmentContract.View, AbstractFragment(),
+    Compass {
 
     @Inject
     lateinit var presenter: CompassFragmentContract.Presenter

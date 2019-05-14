@@ -1,4 +1,4 @@
-package com.matsuu.compassapp.ui.fragments.compass
+package com.matsuu.compassapp.ui.compass
 
 import com.matsuu.compassapp.ui.BasePresenter
 import com.matsuu.compassapp.ui.BaseView

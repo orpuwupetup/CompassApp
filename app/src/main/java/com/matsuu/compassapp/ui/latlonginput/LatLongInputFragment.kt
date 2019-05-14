@@ -1,9 +1,9 @@
-package com.matsuu.compassapp.ui.fragments.latlonginput
+package com.matsuu.compassapp.ui.latlonginput
 
 import android.view.View
 import com.matsuu.compassapp.R
-import com.matsuu.compassapp.ui.fragments.AbstractFragment
-import com.matsuu.compassapp.ui.fragments.latlonginput.usableinterface.LatLongUserInput
+import com.matsuu.compassapp.ui.AbstractFragment
+import com.matsuu.compassapp.ui.latlonginput.usableinterface.LatLongUserInput
 import com.matsuu.compassapp.utils.afterTextChanged
 import kotlinx.android.synthetic.main.fragment_lat_long_input.*
 import javax.inject.Inject
