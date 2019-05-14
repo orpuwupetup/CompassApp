@@ -10,7 +10,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.matsuu.compassapp"
+        applicationId "com.orpuwupetup.compassapp"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
